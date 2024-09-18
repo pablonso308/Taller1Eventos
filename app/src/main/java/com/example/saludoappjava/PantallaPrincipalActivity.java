@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class PantallaPrincipalActivity extends AppCompatActivity {
@@ -42,14 +41,14 @@ public class PantallaPrincipalActivity extends AppCompatActivity {
             Intent intent = new Intent(PantallaPrincipalActivity.this, TerceraPantallaActivity.class);
             startActivity(intent);
         });
+
+
+        // Nuevo botón para navegar a la pantalla de configuración
+        Button buttonNavegarConfiguracion = findViewById(R.id.buttonNavegarConfiguracion);
+        buttonNavegarConfiguracion.setOnClickListener(v -> {
+            Intent intent = new Intent(PantallaPrincipalActivity.this, ConfiguracionActivity.class);
+            startActivity(intent);
+        });
+
     }
-
-    // Nuevo botón para navegar a la pantalla de configuración
-    Button buttonNavegarConfiguracion = findViewById(R.id.buttonNavegarConfiguracion);
-buttonNavegarConfiguracion.setOnClickListener(v -> {
-        Intent intent = new Intent(PantallaPrincipalActivity.this, ConfiguracionActivity.class);
-        startActivity(intent);
-    });
-
-
 }
