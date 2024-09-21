@@ -42,13 +42,7 @@
         android:textSize="20sp"
         android:layout_marginBottom="16dp"/>
 
-    <!-- Botón para navegar a la tercera pantalla -->
-    <Button
-        android:id="@+id/buttonNavegarTercera"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ir a tercera pantalla"/>
-
+    <!--button configuración -->
     <Button
         android:id="@+id/buttonNavegarConfiguracion"
         android:layout_width="wrap_content"

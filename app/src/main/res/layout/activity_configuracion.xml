@@ -5,8 +5,6 @@
     android:layout_height="match_parent"
     android:padding="16dp">
 
-
-
     <!-- Título de la pantalla de configuración -->
     <TextView
         android:id="@+id/textViewTituloConfiguracion"

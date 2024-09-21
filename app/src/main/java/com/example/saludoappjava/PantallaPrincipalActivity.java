@@ -13,7 +13,7 @@ public class PantallaPrincipalActivity extends AppCompatActivity {
     private EditText editTextNombre;
     private TextView textViewNombreGuardado;
     private Button buttonGuardarNombre;
-    private Button buttonNavegarTercera;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +24,8 @@ public class PantallaPrincipalActivity extends AppCompatActivity {
         editTextNombre = findViewById(R.id.editTextNombre);
         textViewNombreGuardado = findViewById(R.id.textViewNombreGuardado);
         buttonGuardarNombre = findViewById(R.id.buttonGuardarNombre);
-        buttonNavegarTercera = findViewById(R.id.buttonNavegarTercera);
+
+
 
         // Lógica para guardar el nombre y mostrarlo en el TextView
         buttonGuardarNombre.setOnClickListener(v -> {
@@ -36,19 +37,12 @@ public class PantallaPrincipalActivity extends AppCompatActivity {
             }
         });
 
-        // Lógica para navegar a la tercera pantalla
-        buttonNavegarTercera.setOnClickListener(v -> {
-            Intent intent = new Intent(PantallaPrincipalActivity.this, TerceraPantallaActivity.class);
-            startActivity(intent);
-        });
 
 
-        // Nuevo botón para navegar a la pantalla de configuración
-        Button buttonNavegarConfiguracion = findViewById(R.id.buttonNavegarConfiguracion);
-        buttonNavegarConfiguracion.setOnClickListener(v -> {
-            Intent intent = new Intent(PantallaPrincipalActivity.this, ConfiguracionActivity.class);
-            startActivity(intent);
-        });
+
+
+
+
 
     }
 }
