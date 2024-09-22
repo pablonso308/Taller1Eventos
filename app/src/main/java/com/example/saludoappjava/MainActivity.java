@@ -6,18 +6,29 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
+
+    private ConstraintLayout layoutMain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Referencia al TextView donde se mostrará el saludo
+        // Inicializar las vistas
+        layoutMain = findViewById(R.id.layoutMain); // El layout principal de la actividad
         TextView textViewSaludo = findViewById(R.id.textViewSaludo);
         Button buttonSiguiente = findViewById(R.id.buttonSiguiente);
+
+        // Recuperar y aplicar el color de fondo guardado
+        int colorGuardado = Utilidades.obtenerColorGuardado(this);
+        layoutMain.setBackgroundColor(colorGuardado);
+
+
 
         // Obtener la hora actual
         Calendar calendar = Calendar.getInstance();

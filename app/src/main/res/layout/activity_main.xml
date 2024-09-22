@@ -1,4 +1,9 @@
 
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/layoutMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -7,20 +12,22 @@
     android:gravity="center"
     android:padding="16dp">
 
-    <!-- Texto para mostrar el saludo -->
-    <TextView
-        android:id="@+id/textViewSaludo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Saludo"
-        android:textSize="24sp"
-        android:textColor="@android:color/black"
-        android:layout_marginBottom="24dp"/>
+<!-- Texto para mostrar el saludo -->
+<TextView
+    android:id="@+id/textViewSaludo"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Saludo"
+    android:textSize="24sp"
+    android:textColor="@android:color/black"
+    android:layout_marginBottom="24dp"/>
 
-    <!-- Botón para navegar a la siguiente pantalla -->
-    <Button
-        android:id="@+id/buttonSiguiente"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ir a pantalla principal"/>
+<!-- Botón para navegar a la siguiente pantalla -->
+<Button
+    android:id="@+id/buttonSiguiente"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Ir a pantalla principal"/>
 </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,54 +1,65 @@
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/layoutPantallaPrincipal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="16dp">
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Texto para la actividad principal -->
-    <TextView
-        android:id="@+id/textViewPrincipal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Esta es la pantalla principal"
-        android:textSize="24sp"
-        android:textColor="@android:color/black"/>
 
-    <!-- EditText para ingresar el nombre del usuario -->
-    <EditText
-        android:id="@+id/editTextNombre"
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Ingresa tu nombre"
-        android:inputType="textPersonName"
-        android:layout_marginBottom="16dp"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="16dp">
 
-    <!-- Botón para guardar el nombre ingresado -->
-    <Button
-        android:id="@+id/buttonGuardarNombre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Guardar Nombre"
-        android:layout_marginBottom="16dp"/>
+        <!-- Texto para la actividad principal -->
+        <TextView
+            android:id="@+id/textViewPrincipal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Esta es la pantalla principal"
+            android:textSize="24sp"
+            android:textColor="@android:color/black"/>
 
-    <!-- TextView para mostrar el nombre ingresado -->
-    <TextView
-        android:id="@+id/textViewNombreGuardado"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nombre: "
-        android:textSize="20sp"
-        android:layout_marginBottom="16dp"/>
+        <!-- EditText para ingresar el nombre del usuario -->
+        <EditText
+            android:id="@+id/editTextNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingresa tu nombre"
+            android:inputType="textPersonName"
+            android:layout_marginBottom="16dp"/>
 
-    <!--button configuración -->
-    <Button
-        android:id="@+id/buttonNavegarConfiguracion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ir a configuración"
-        android:layout_marginTop="24dp"/>
+        <!-- Botón para guardar el nombre ingresado -->
+        <Button
+            android:id="@+id/buttonGuardarNombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Guardar Nombre"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- TextView para mostrar el nombre ingresado -->
+        <TextView
+            android:id="@+id/textViewNombreGuardado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre: "
+            android:textSize="20sp"
+            android:layout_marginBottom="16dp"/>
+
+        <Button
+            android:id="@+id/buttonIrConfiguracion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ir a Configuración"
+            android:layout_marginTop="16dp"
+            android:layout_below="@+id/buttonGuardarNombre"
+            android:layout_centerHorizontal="true"/>
 
 
-</LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

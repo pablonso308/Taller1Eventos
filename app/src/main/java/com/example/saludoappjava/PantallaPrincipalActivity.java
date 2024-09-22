@@ -6,6 +6,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class PantallaPrincipalActivity extends AppCompatActivity {
 
@@ -13,7 +14,8 @@ public class PantallaPrincipalActivity extends AppCompatActivity {
     private EditText editTextNombre;
     private TextView textViewNombreGuardado;
     private Button buttonGuardarNombre;
-
+    private Button buttonIrConfiguracion;
+    private ConstraintLayout layoutPantallaPrincipal; // Layout de la pantalla principal
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,10 +23,15 @@ public class PantallaPrincipalActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pantalla_principal);
 
         // Inicialización de los elementos de la interfaz
+        layoutPantallaPrincipal = findViewById(R.id.layoutPantallaPrincipal); // El layout principal
         editTextNombre = findViewById(R.id.editTextNombre);
         textViewNombreGuardado = findViewById(R.id.textViewNombreGuardado);
         buttonGuardarNombre = findViewById(R.id.buttonGuardarNombre);
+        buttonIrConfiguracion = findViewById(R.id.buttonIrConfiguracion); // Inicializamos el nuevo botón
 
+        // Recuperar y aplicar el color de fondo guardado
+        int colorGuardado = Utilidades.obtenerColorGuardado(this);
+        layoutPantallaPrincipal.setBackgroundColor(colorGuardado);
 
 
         // Lógica para guardar el nombre y mostrarlo en el TextView
@@ -37,6 +44,11 @@ public class PantallaPrincipalActivity extends AppCompatActivity {
             }
         });
 
+        // Lógica para ir a ConfiguracionActivity al hacer clic en el nuevo botón
+        buttonIrConfiguracion.setOnClickListener(v -> {
+            Intent intent = new Intent(PantallaPrincipalActivity.this, ConfiguracionActivity.class);
+            startActivity(intent); // Iniciar la actividad de configuración
+        });
 
 
 
