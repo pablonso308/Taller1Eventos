@@ -1,6 +1,5 @@
 package com.example.saludoappjava;
 
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.Button;
@@ -8,25 +7,31 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class PantallaPrincipalActivity extends AppCompatActivity {
 
     private EditText editTextNombre;
     private TextView textViewNombreGuardado;
     private TextView textViewProgreso;
+    private ConstraintLayout layoutPantallaPrincipal;  // El layout principal de la actividad
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla_principal);
 
-        // Inicializar vistas
+        // Inicializar las vistas
         editTextNombre = findViewById(R.id.editTextNombre);
         textViewNombreGuardado = findViewById(R.id.textViewNombreGuardado);
         textViewProgreso = findViewById(R.id.textViewProgreso);
         Button buttonGuardarNombre = findViewById(R.id.buttonGuardarNombre);
         Button buttonIniciarTarea = findViewById(R.id.buttonIniciarTarea);
-        Button buttonVolverMain = findViewById(R.id.buttonVolverMain);
+        layoutPantallaPrincipal = findViewById(R.id.layoutPantallaPrincipal);
+
+        // Recuperar y aplicar el color de fondo guardado
+        int colorGuardado = Utilidades.obtenerColorGuardado(this);
+        layoutPantallaPrincipal.setBackgroundColor(colorGuardado);
 
         // Guardar el nombre ingresado y mostrarlo en el TextView
         buttonGuardarNombre.setOnClickListener(v -> {
@@ -43,12 +48,6 @@ public class PantallaPrincipalActivity extends AppCompatActivity {
         // Iniciar la tarea en segundo plano al presionar el botón
         buttonIniciarTarea.setOnClickListener(v -> {
             new SimulacionRedTask().execute();
-        });
-
-        // Volver a la pantalla principal (MainActivity) al presionar el botón
-        buttonVolverMain.setOnClickListener(v -> {
-            // Finalizar esta actividad y volver al MainActivity
-            finish();
         });
     }
 
@@ -89,4 +88,3 @@ public class PantallaPrincipalActivity extends AppCompatActivity {
         }
     }
 }
-

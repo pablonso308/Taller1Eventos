@@ -31,13 +31,13 @@
         android:text="Color Azul"
         android:layout_marginTop="16dp" />
 
-    <!-- Botón para volver a la pantalla de inicio -->
     <Button
-        android:id="@+id/buttonVolverInicio"
+        android:id="@+id/buttonVolverMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Volver a Inicio"
-        android:layout_marginTop="32dp" />
+        android:text="Volver al Inicio"
+        android:layout_marginTop="16dp" />
+
 
 
 </LinearLayout>

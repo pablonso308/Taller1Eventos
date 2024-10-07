@@ -22,7 +22,7 @@ public class ConfiguracionActivity extends AppCompatActivity {
         Button buttonColorRojo = findViewById(R.id.buttonColorRojo);
         Button buttonColorVerde = findViewById(R.id.buttonColorVerde);
         Button buttonColorAzul = findViewById(R.id.buttonColorAzul);
-        Button buttonVolverInicio = findViewById(R.id.buttonVolverInicio);
+        Button buttonVolverMain = findViewById(R.id.buttonVolverMain);
 
         // Manejar selección de color para cambiar el fondo
         buttonColorRojo.setOnClickListener(v -> cambiarColorDeFondo(ContextCompat.getColor(this, android.R.color.holo_red_light)));
@@ -30,7 +30,7 @@ public class ConfiguracionActivity extends AppCompatActivity {
         buttonColorAzul.setOnClickListener(v -> cambiarColorDeFondo(ContextCompat.getColor(this, android.R.color.holo_blue_light)));
 
         // Volver a la pantalla principal (MainActivity)
-        buttonVolverInicio.setOnClickListener(v -> {
+        buttonVolverMain.setOnClickListener(v -> {
             Intent intent = new Intent(ConfiguracionActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
