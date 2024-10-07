@@ -51,12 +51,5 @@ public class PantallaPrincipalActivity extends AppCompatActivity {
         });
 
 
-
-
-
-
-
-
-
     }
 }
