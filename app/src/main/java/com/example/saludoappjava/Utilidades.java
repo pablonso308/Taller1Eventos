@@ -1,24 +1,25 @@
 package com.example.saludoappjava;
+
+
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.Color;
+import androidx.core.content.ContextCompat;
 
 public class Utilidades {
+    private static final String PREFERENCIAS = "ConfiguracionApp";
+    private static final String CLAVE_COLOR_FONDO = "colorFondo";
 
-    private static final String PREFERENCIAS_COLOR = "PreferenciasColor";
-    private static final String CLAVE_COLOR = "color_fondo";
-
-    // Método para obtener el color guardado
-    public static int obtenerColorGuardado(Context context) {
-        SharedPreferences sharedPreferences = context.getSharedPreferences(PREFERENCIAS_COLOR, Context.MODE_PRIVATE);
-        return sharedPreferences.getInt(CLAVE_COLOR, Color.WHITE); // Blanco por defecto
+    // Guardar el color de fondo seleccionado
+    public static void guardarColorFondo(Context context, int color) {
+        SharedPreferences prefs = context.getSharedPreferences(PREFERENCIAS, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt(CLAVE_COLOR_FONDO, color);
+        editor.apply();
     }
 
-    // Método para guardar el color en las preferencias
-    public static void guardarColor(Context context, int color) {
-        SharedPreferences sharedPreferences = context.getSharedPreferences(PREFERENCIAS_COLOR, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt(CLAVE_COLOR, color);
-        editor.apply(); // Guardar los cambios
+    // Obtener el color de fondo guardado, o un color por defecto si no se ha guardado
+    public static int obtenerColorGuardado(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(PREFERENCIAS, Context.MODE_PRIVATE);
+        return prefs.getInt(CLAVE_COLOR_FONDO, ContextCompat.getColor(context, android.R.color.white));  // Por defecto blanco
     }
 }

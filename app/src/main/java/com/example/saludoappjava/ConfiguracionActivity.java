@@ -1,19 +1,16 @@
 package com.example.saludoappjava;
 
+
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
 
 public class ConfiguracionActivity extends AppCompatActivity {
 
-    private ConstraintLayout layoutConfiguracion;
-    private Button buttonColorRojo;
-    private Button buttonColorAzul;
-    private Button buttonColorVerde;
-    private Button buttonVolverInicio;
+    private LinearLayout layoutConfiguracion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,37 +19,27 @@ public class ConfiguracionActivity extends AppCompatActivity {
 
         // Inicializar las vistas
         layoutConfiguracion = findViewById(R.id.layoutConfiguracion);
-        buttonColorRojo = findViewById(R.id.buttonColorRojo);
-        buttonColorAzul = findViewById(R.id.buttonColorAzul);
-        buttonColorVerde = findViewById(R.id.buttonColorVerde);
-        buttonVolverInicio = findViewById(R.id.buttonVolverInicio);
+        Button buttonColorRojo = findViewById(R.id.buttonColorRojo);
+        Button buttonColorVerde = findViewById(R.id.buttonColorVerde);
+        Button buttonColorAzul = findViewById(R.id.buttonColorAzul);
+        Button buttonVolverInicio = findViewById(R.id.buttonVolverInicio);
 
-        // Recuperar y aplicar el color de fondo guardado
-        int colorGuardado = Utilidades.obtenerColorGuardado(this);
-        layoutConfiguracion.setBackgroundColor(colorGuardado);
+        // Manejar selección de color para cambiar el fondo
+        buttonColorRojo.setOnClickListener(v -> cambiarColorDeFondo(ContextCompat.getColor(this, android.R.color.holo_red_light)));
+        buttonColorVerde.setOnClickListener(v -> cambiarColorDeFondo(ContextCompat.getColor(this, android.R.color.holo_green_light)));
+        buttonColorAzul.setOnClickListener(v -> cambiarColorDeFondo(ContextCompat.getColor(this, android.R.color.holo_blue_light)));
 
-        // Cambiar el color del fondo a rojo y guardarlo
-        buttonColorRojo.setOnClickListener(v -> {
-            layoutConfiguracion.setBackgroundColor(Color.RED);
-            Utilidades.guardarColor(ConfiguracionActivity.this, Color.RED);
-        });
-
-        // Cambiar el color del fondo a azul y guardarlo
-        buttonColorAzul.setOnClickListener(v -> {
-            layoutConfiguracion.setBackgroundColor(Color.BLUE);
-            Utilidades.guardarColor(ConfiguracionActivity.this, Color.BLUE);
-        });
-
-        // Cambiar el color del fondo a verde y guardarlo
-        buttonColorVerde.setOnClickListener(v -> {
-            layoutConfiguracion.setBackgroundColor(Color.GREEN);
-            Utilidades.guardarColor(ConfiguracionActivity.this, Color.GREEN);
-        });
-
-        // Volver a la pantalla de inicio
+        // Volver a la pantalla principal (MainActivity)
         buttonVolverInicio.setOnClickListener(v -> {
             Intent intent = new Intent(ConfiguracionActivity.this, MainActivity.class);
             startActivity(intent);
+            finish();
         });
+    }
+
+    // Método para cambiar el color del fondo y guardarlo en SharedPreferences
+    private void cambiarColorDeFondo(int color) {
+        layoutConfiguracion.setBackgroundColor(color);  // Cambiar el color en la vista actual
+        Utilidades.guardarColorFondo(this, color);  // Guardar el color seleccionado
     }
 }
